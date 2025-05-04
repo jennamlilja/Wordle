@@ -1,0 +1,45 @@
+def wordle():
+
+#welcoming the user to the game, 
+#it's stating that it is the game wordle
+    print("Welcome to Wordle! Guess the special 5-letter word")
+
+    word = "ghost" 
+#my special word is "ghost",
+#but the user does not know that
+
+    while True:
+#my program is letting the user know
+#they need to input a 5-letter word
+        guess = str(input("\nEnter your 5-letter guess:"))
+#if the user inputs a word more or less
+#than 5 letters, it'll let them know that
+#that is not how the game works  
+        if len(guess) != 5:
+            print("Wordle only works with 5-letter words!\n")
+#if the user guesses the word (ghost) then
+#it'll tell them that they are correct   
+        if guess == word:
+            print("That's correct! The special 5-letter word is: ghost!")
+
+        for i in range(len(guess)):
+#if they guess the correct letter
+#in the correct position, it'll say that it is correct
+            if guess[i] == word[i]:
+                print(f"{guess[i]} is correct!")
+#if they guess a correct letter in the word
+#but it is in the wrong spot,
+#it'll say that it is in the wrong position
+            elif guess[i] in word:
+                print(f"{guess[i]} is used in the word, but not in this position.")
+#if the letter used in the word isn't correct
+#or used at all, it'll say that it is
+#not used in the 5-letter word.
+            else:
+                print(f"{guess[i]} is not used in the 5-letter word.")
+        print()   
+while True:
+    wordle()
+    over = input("\nThank you for playing! Would you like a rematch? (Y/N)")
+    if over != "y":
+        print("Thank you for playing! I'll see you next time!")
